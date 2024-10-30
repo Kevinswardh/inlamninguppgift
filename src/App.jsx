@@ -4,6 +4,7 @@ import Header from "./sections/00-Universal/top-header";
 import Home from "./views/01-Home";
 import Features from "./views/02-Features";
 import Contact from "./views/03-Contact";
+import Footer from "./sections/01-Home/99-Footer";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
+      <Footer />
     </BrowserRouter>
   );
 }
