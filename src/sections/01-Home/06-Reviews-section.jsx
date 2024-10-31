@@ -1,8 +1,25 @@
-import FilledStar from "../../assets/Pictures/filled-star.svg";
-import UnfilledStar from "../../assets/Pictures/unfilled-star.svg";
-import FannieImg from "../../assets/Pictures/fannie-img.png";
-import AlbertImg from "../../assets/Pictures/albert-img.png";
+import { useEffect, useState } from "react";
+import ReviewBox from "../../components/ReviewBox";
+
 const ReviewsSection = () => {
+  const [stateVar, setStateVar] = useState([]);
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch(
+        "https://win24-assignment.azurewebsites.net/api/testimonials"
+      );
+      const dataInJson = await response.json();
+      setStateVar(dataInJson);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <div className="background-widescreen-fixer-howitworks desktop-only-block">
       <section className="section-max-width desktop-only-block">
@@ -10,52 +27,16 @@ const ReviewsSection = () => {
           <div>
             <p>Clients are Loving Our App</p>
           </div>
-          <div className="review-boxes">
-            <div className="star-box">
-              <img src={FilledStar} />
-              <img src={FilledStar} />
-              <img src={FilledStar} />
-              <img src={FilledStar} />
-              <img src={UnfilledStar} />
-            </div>
-            <p>
-              Sit pretium aliquam tempor, orci dolor sed maecenas rutrum
-              sagittis. Laoreet posuere rhoncus, egestas lacus, egestas justo
-              aliquam vel. Nisi vitae lectus hac hendrerit. Montes justo turpis
-              sit amet.
-            </p>
-            <div className="user-img-box">
-              <img src={FannieImg} />
-              <div>
-                {/* <!--Just a wrapper--> */}
-                <h3>Fannie Summers</h3>
-                <p>Designer</p>
-              </div>
-            </div>
-          </div>
-          <div className="review-boxes">
-            <div className="star-box">
-              <img src={FilledStar} />
-              <img src={FilledStar} />
-              <img src={FilledStar} />
-              <img src={FilledStar} />
-              <img src={UnfilledStar} />
-            </div>
-            <p>
-              Nunc senectus leo vel venenatis accumsan vestibulum sollicitudin
-              amet porttitor. Nisl bibendum nulla tincidunt eu enim ornare
-              dictumst sit amet. Dictum pretium dolor tincidunt egestas eget
-              nunc.
-            </p>
-            <div className="user-img-box">
-              <img src={AlbertImg} />
-              <div>
-                {/* <!--Just a wrapper--> */}
-                <h3>Albert Flores</h3>
-                <p>Developer</p>
-              </div>
-            </div>
-          </div>
+          {stateVar.map((review) => (
+            <ReviewBox
+              key={review.id}
+              reviewText={review.comment || "No review text available"}
+              rating={review.starRating}
+              userImg={review.avatarUrl}
+              userName={review.author}
+              userTitle={review.jobRole}
+            />
+          ))}
         </div>
       </section>
     </div>
