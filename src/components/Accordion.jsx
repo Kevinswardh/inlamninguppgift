@@ -1,39 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Accordion = () => {
   const [activeIndex, setActiveIndex] = useState(null);
+  const [qaItems, setQaItems] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          "https://win24-assignment.azurewebsites.net/api/faq"
+        );
+        const data = await response.json();
+        setQaItems(data); // Store fetched data in state
+      } catch (error) {
+        console.error("Error fetching FAQ data:", error);
+      }
+    };
 
-  const qaItems = [
-    {
-      question: "Is any of my personal information stored in the App?",
-      answer:
-        "No, your personal information is not stored in the App. We prioritize user privacy and do not retain any personal data.",
-    },
-    {
-      question: "What formats can I download my transaction history in?",
-      answer:
-        "You can download your transaction history in CSV, PDF, and Excel formats.",
-    },
-    {
-      question: "Can I schedule future transfers?",
-      answer:
-        "Yes, you can schedule future transfers for specific dates directly through the App.",
-    },
-    {
-      question: "When can I use Banking App services?",
-      answer: "You can use Banking App services 24/7, anytime you need.",
-    },
-    {
-      question: "Can I create my own password that is easy for me to remember?",
-      answer:
-        "Yes, you can create your own password, but we recommend using a mix of letters, numbers, and symbols for security.",
-    },
-    {
-      question: "What happens if I forget or lose my password?",
-      answer:
-        "If you forget or lose your password, you can reset it using the 'Forgot Password' option on the login page.",
-    },
-  ];
+    fetchData();
+  }, []);
 
   const toggleAccordion = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
@@ -50,7 +34,7 @@ const Accordion = () => {
             className={`qa-header-box`}
             onClick={() => toggleAccordion(index)}
           >
-            <h3>{item.question}</h3>
+            <h3>{item.title}</h3>
             <div className="qa-btn-box">
               {activeIndex === index ? (
                 <svg
@@ -96,7 +80,7 @@ const Accordion = () => {
           </div>
           {activeIndex === index && (
             <div className="qa-content-box">
-              <p>{item.answer}</p>
+              <p>{item.content}</p>
             </div>
           )}
         </div>

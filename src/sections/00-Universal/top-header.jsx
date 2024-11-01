@@ -1,8 +1,23 @@
 import TopLogo from "../../assets/Pictures/top-logo.svg";
 import { Link, NavLink } from "react-router-dom";
 import DarkModeSwitch from "../../components/DarkModeSwitch";
-
-const topHeader = () => {
+import HamburgerMenu from "../../components/Hamburger-menu";
+import HiddenMenu from "../../components/HiddenMenu";
+import { useState, useRef } from "react";
+const TopHeader = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const hiddenMenuRef = useRef(null);
+  const toggleMenu = () => {
+    setIsMenuOpen((prev) => {
+      if (!prev) {
+        hiddenMenuRef.current?.focus();
+      }
+      return !prev;
+    });
+  };
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
   return (
     <header id="top-header">
       <div className="wrapper">
@@ -34,17 +49,7 @@ const topHeader = () => {
           <DarkModeSwitch />
           {/* Dark mode button */}
 
-          <button
-            aria-controls="Mobile menu"
-            aria-expanded="false"
-            aria-label="Mobile site menu"
-            className="hamburger-menu"
-            tabIndex="0"
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
+          <HamburgerMenu onClick={toggleMenu} isOpen={isMenuOpen} />
           <button className="signin-btn-link" tabIndex="0">
             <div className="signin-btn">
               <svg
@@ -70,8 +75,10 @@ const topHeader = () => {
           </button>
         </div>
       </div>
+      {/* Hidden Menu (Mobile Only) */}
+      {isMenuOpen && <HiddenMenu ref={hiddenMenuRef} closeMenu={closeMenu} />}
     </header>
   );
 };
 
-export default topHeader;
+export default TopHeader;

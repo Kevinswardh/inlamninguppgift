@@ -187,6 +187,7 @@ Description:
 }
 
 /***Menu button Mobile***/
+
 .hamburger-menu {
   width: $width-30px;
   height: $height-36px;
@@ -194,6 +195,7 @@ Description:
   @include pointer;
   border: $border-none;
   background-color: $white-background;
+  position: relative;
 }
 
 .hamburger-menu span {
@@ -201,6 +203,19 @@ Description:
   width: pxtorem(22);
   height: pxtorem(2);
   background-color: #333;
+  transition: all 0.3s ease;
+}
+
+.hamburger-menu span.top {
+  position: absolute;
+  top: pxtorem(6);
+  transform: rotate(45deg) translateY(6.666px);
+}
+
+.hamburger-menu span.bottom {
+  position: absolute;
+  bottom: pxtorem(6);
+  transform: rotate(-45deg) translateY(-6.666px);
 }
 
 .hamburger-menu span:first-child {
@@ -215,7 +230,36 @@ Description:
 .hamburger-menu span:last-child {
   margin-bottom: pxtorem(6);
 }
+/*Hidden menu*/
+.hidden-menu {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  right: 0;
+  background-color: #c5c5c5;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  z-index: 1000;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  user-select: none;
+}
 
+.hidden-menu a {
+  padding: 15px;
+  width: 100%;
+  text-align: center;
+  color: #333;
+  text-decoration: none;
+}
+.hidden-menu a:hover {
+  background-color: #949494;
+  color: #000000;
+}
 .signin-btn-link {
   display: none;
   @include pointer;
