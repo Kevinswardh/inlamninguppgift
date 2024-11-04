@@ -1,7 +1,0 @@
-@use 'sass:math'; // Import the math module
-
-// px to rem function
-@function pxtorem($px-value) {
-  $rem-value: math.div($px-value, 16);
-  @return #{$rem-value}rem;
-}
