@@ -1,0 +1,194 @@
+// Variables
+
+//Most important values is 
+// Colors, Borders, Fonts, Complete components, animations
+// all sizes of containers could be fixed set with pxtorec function
+// Shortcuts could be used for writing speed. 
+//Names is crucial, like i have done in this file using 
+//names like each px value is not good, i should use like 
+//Large headings, Medium headings, Small headings etc then i could.
+//Change the value of those, now i need to change the variable on each place
+//Or have a weird name.  i could do a system like now when i write the code
+// then have something like $large-headings: $font-size-34-1;
+//If  ido this on all text or is the variable is reused i could easy change both.
+//if i do this i could use the power of tailwind/bootstrap together.
+//were i have all attributes collected, and all components collected.
+
+
+////////////////////////
+//****  Colors  *****///
+$primary-color: #6366f1;
+$secondary-color: rgba(218, 70, 239, 0.05);
+$dark-background: #0b0f19;
+$light-background: #ffffff;
+$white-background: #ffffff;
+$light-primary-color: lighten($primary-color, 5%);
+$gradient-start: rgba(99, 102, 241, 0.1);
+$gradient-middle: rgba(218, 70, 239, 0.05);
+$gradient-end: rgba(19, 16, 34, 0.01);
+$text-color-black: black;
+$text-color-features: #33354D;
+$color-toggle-background: #9397ad; 
+$paragraph-text-color: #585C7B;
+$dark-button: #131022; 
+$fill-discover-button: #3E4265;
+$background-howitworks: #F3F6FF;
+
+//Shortcuts // A potentially workshop solution for normal values.
+//color
+$wi: white;
+//positions
+$c: center;
+
+
+////////////////////////
+//****Typography*****///
+
+//Fonts
+$font-family: "Manrope", system-ui, sans-serif;
+$apple-font: apple-system, BlinkMacSystemFont, "Helvetica Neue", "Arial", sans-serif;
+
+//Font sizes
+$font-size-11: pxtorem(11); 
+$font-size-16: pxtorem(16); 
+$font-size-18: pxtorem(18); 
+$font-size-20: pxtorem(20);
+$font-size-20-8: pxtorem(20.8);
+$font-size-21-6: pxtorem(21.6);
+$font-size-27-9: pxtorem(27.9);
+$font-size-34-1: pxtorem(34.1);
+
+
+//Font weights
+$font-weight-400: 400;
+$font-weight-500: 500;
+$font-weight-700: 700;
+$font-weight-800: 800;
+$font-weight-900: 900;
+
+
+////////////////////////
+//****  Spacing *****///
+$default-margin: 0;
+$default-padding: 0;
+
+//Padding
+$padding-5px: pxtorem(5);
+$padding-16px: pxtorem(16);
+$padding-20px: pxtorem(20);
+$padding-25px: pxtorem(25);
+
+$padding-top-1px: pxtorem(1);
+$padding-top-50px: pxtorem(50);
+$padding-top-100px: pxtorem(100);
+
+$padding-bottom-50px: pxtorem(50);
+$padding-bottom-70px: pxtorem(70);
+
+//Margins
+$margin-20: pxtorem(20);
+
+$margin-top-4px: pxtorem(4);
+$margin-top-20px: pxtorem(20);
+$margin-top-30px: pxtorem(30);
+
+$margin-left-7: pxtorem(7);
+$margin-top-large: pxtorem(100);
+$margin-top-negative-100px: pxtorem(-100);
+$margin-bottom-10px: pxtorem(10);
+
+//Gaps
+$gap-16: pxtorem(16);
+$gap-20: pxtorem(20);
+$gap-25: pxtorem(25);
+$gap-30: pxtorem(30);
+
+
+////////////////////////
+//****   Sizes  *****///
+//Unversal converters
+ $px3: pxtorem(3px);
+
+//Widths
+   //Procentage
+    $width-100: 100%;
+
+   //Pixels
+    $width-30px: pxtorem(30);
+    $width-44px: pxtorem(44);
+    $width-300px: pxtorem(300);
+
+   //Misc widths
+    $max-section-width: pxtorem(1298); // Sections max width
+    $toggle-switch-width: pxtorem(46);
+
+    //Max-wdiths
+    $max-width-250px: pxtorem(250);
+    $max-width-415px: pxtorem(415);
+    $max-width-425px: pxtorem(425);
+    $max-width-1200px: pxtorem(1200);
+
+//Heights
+   //Procentage
+    $height-100: 100%;
+
+   //Pixels
+    $height-36px: pxtorem(36);
+    $height-44px: pxtorem(44);
+    $height-50px: pxtorem(50);
+    $height-115-2px: pxtorem(115.2);
+   
+
+   //Misc widths
+    $header-height: pxtorem(52);
+    $toggle-switch-height: pxtorem(24);
+
+//Misc sizes circles/rectagles etc
+$toggle-knob-diameter: pxtorem(18);
+
+
+
+////////////////////////
+//****  Borders *****///
+$border-none: none;
+$proc50: 50%;
+
+//Border-radius
+$normal-radius: pxtorem(8);
+
+
+////////////////////////
+//****  Shadows *****///
+$box-shadow-header: 0px 0px 3px 0px hsl(0, 0%, 70%);
+$box-shadow-header-65: 0px 0px 0px 0.2px hsla(0, 0%, 100%, 0.65);
+$focus-border: 1px solid $text-color-black; 
+$box-shadow-toggle: 0px 8px 18px -8px rgba($primary-color, 0.9);
+
+
+
+////////////////////////
+//****Transitions****///
+$transition-duration: 0.16s;
+$toggle-knob-transition: left 0.3s ease;
+
+
+
+////////////////////////
+//***Miscellaneous***///
+
+
+
+//Box sizing
+$box-sizing-border: border-box;
+$box-sizing-content: content-box;
+
+//Display variables
+$display-none: none;
+$display-block: block; 
+
+
+
+// Dimensions
+
+//Z-index
+$z-index-top-header: 999;
