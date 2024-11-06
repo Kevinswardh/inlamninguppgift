@@ -57,6 +57,3 @@ I projektet använder vi Context API för att hantera global state, exempelvis f
 
 Vi använder Formik för formulärhantering och Yup för validering. Varje formulärfält valideras automatiskt på `onBlur` och `onSubmit`, och valideringsschemat är dynamiskt och kan anpassas efter behov.
 
-
-
-Detta README-dokument ger en överblick av projektet och beskriver de huvudsakliga komponenterna och teknikerna som används.
