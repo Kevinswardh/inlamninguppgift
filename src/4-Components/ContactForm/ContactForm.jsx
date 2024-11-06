@@ -76,6 +76,7 @@ const ContactForm = ({ formTitle, children }) => {
       initialValues={initialValues}
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
+      validateOnChange
     >
       <Form className="consultation-form" noValidate>
         <h2 className="form-title">{formTitle}</h2>

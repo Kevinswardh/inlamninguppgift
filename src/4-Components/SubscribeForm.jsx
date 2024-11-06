@@ -56,6 +56,7 @@ const SubscribeForm = () => {
       initialValues={{ email: "" }}
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
+      validateOnChange
     >
       {({ isSubmitting, errors, touched }) => (
         <Form className="email-wrapper" noValidate>
