@@ -81,7 +81,7 @@ const ContactHeroSection = () => {
             <FormLabel htmlFor="specialist" text="Specialist" />
             <FormSelect
               id="selection"
-              name="selection"
+              name="specialist"
               options={["Bankist", "Customer Service", "Sales"]}
               required
             />
